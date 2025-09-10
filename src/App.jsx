@@ -1,6 +1,11 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 
+import CSSGlobalHome from './01-css-global/pages/Home'
+import CSSModulesHome from './02-css-modules/pages/Home'
+import TailwindHome from './03-tailwind/pages/Home'
+import StyledComponentsHome from './04-styled-components/pages/Home'
+
 export default function App() {
   const versions = [
     { id: 1, title: "CSS Global", path: "/css-global", desc: "Versão com estilos globais." },
@@ -11,6 +16,7 @@ export default function App() {
 
   return (
     <Routes>
+      {/* Página inicial */}
       <Route
         path="/"
         element={
@@ -39,10 +45,11 @@ export default function App() {
         }
       />
 
-      <Route path="/css-global" element={<div>Versão CSS Global</div>} />
-      <Route path="/css-modules" element={<div>Versão CSS Modules</div>} />
-      <Route path="/tailwind" element={<div>Versão Tailwind CSS</div>} />
-      <Route path="/styled-components" element={<div>Versão Styled Components</div>} />
+      {/* Rotas para cada versão */}
+      <Route path="/css-global" element={<CSSGlobalHome />} />
+      <Route path="/css-modules" element={<CSSModulesHome />} />
+      <Route path="/tailwind" element={<TailwindHome />} />
+      <Route path="/styled-components" element={<StyledComponentsHome />} />
     </Routes>
   );
 }

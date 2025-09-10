@@ -1,0 +1,268 @@
+/* ======= Temas ======= */
+body.light {
+  background: #f8f9fa;
+  color: #222;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background: #121212;
+  color: #f1f1f1;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ======= Navbar ======= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: inherit; /* herdando do tema */
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 1000;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark .navbar {
+  border-bottom: 1px solid #333;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.cart {
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ======= Conteúdo principal ======= */
+.home-container {
+  padding-top: 70px; /* para não ficar atrás da navbar */
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content h1 {
+  margin-bottom: 0.5rem;
+}
+
+.content p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+  color: inherit;
+}
+
+/* Grid responsivo */
+.products-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.card {
+  background: inherit;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.card:focus {
+  box-shadow: 0 0 0 3px #3b82f6;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .card {
+  border: 1px solid #333;
+}
+
+/* Imagem 1:1 */
+.card-image {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.card-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tag */
+.tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #f59e0b;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Conteúdo */
+.card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.2;
+  max-height: 2.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card-price {
+  font-weight: bold;
+  color: #10b981;
+}
+
+.card-rating {
+  color: #fbbf24;
+}
+
+/* Botões */
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn.solid {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+}
+
+.btn.outline {
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+  background: transparent;
+}
+
+.btn.ghost {
+  border: none;
+  background: transparent;
+  color: #3b82f6;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Skeleton */
+.skeleton {
+  background: #e5e7eb;
+  animation: pulse 1.5s infinite;
+}
+
+.image-placeholder {
+  width: 100%;
+  padding-top: 100%;
+  background: #ccc;
+}
+
+.text-placeholder {
+  height: 16px;
+  margin: 8px;
+  background: #ccc;
+}
+
+.text-placeholder.small {
+  width: 60%;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
