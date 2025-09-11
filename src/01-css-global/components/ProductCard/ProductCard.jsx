@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import "../../styles/style.css"
+import Button from "../Button/Button";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, onAddToCart }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -35,7 +36,7 @@ export default function ProductCard({ product }) {
                 <p className="card-rating">{"★".repeat(product.rating)}</p>
 
                 <div className="card-actions">
-                    <button className="btn solid">Adicionar</button>
+                    <Button onClick={onAddToCart} />
                 </div>
             </div>
         </div>

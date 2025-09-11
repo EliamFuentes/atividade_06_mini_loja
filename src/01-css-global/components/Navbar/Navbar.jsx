@@ -1,23 +1,21 @@
-import { useState } from "react";
 import '../../styles/style.css'
+import { Store, ShoppingCart } from "lucide-react";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
-export default function Navbar({ toggleTheme, theme }) {
-
-    const [cartCount] = useState(3);
+export default function Navbar({ toggleTheme, theme, cartCount }) {
 
     return (
         <nav className="navbar">
-            <div className="logo">Mini Loja</div>
+            <div className="logo">
+                <Store />
+                <span>Mini Loja</span>
+            </div>
 
             <div className="navbar-actions">
-                {/* Botão para trocar tema */}
-                <button onClick={toggleTheme} className="theme-toggle">
-                    {theme === "light" ? "🌞" : "🌜"}
-                </button>
-
-                {/* Badge do carrinho */}
+                <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
                 <div className="cart">
-                    🛒 <span className="cart-count">{cartCount}</span>
+                    <ShoppingCart />
+                    <span className="cart-count">{cartCount}</span>
                 </div>
             </div>
         </nav>

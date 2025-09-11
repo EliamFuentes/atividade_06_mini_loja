@@ -14,6 +14,11 @@ export default function Home() {
         { id: 6, title: 'Cadeira Ergonômica com Apoio Lombar', price: 1299.0, rating: 4.4, tag: 'Promo', image: 'https://picsum.photos/seed/prod6/512' }
     ];
 
+    const [cartCount, setCartCount] = useState(0);
+
+    const handleAddToCart = () => {
+        setCartCount((prev) => prev + 1);
+    };
 
     const [theme, setTheme] = useState(() => {
         // Pega o tema salvo no localStorage ou começa como "light"
@@ -34,12 +39,12 @@ export default function Home() {
     return (
         <div className="home-container">
             {/* Navbar recebe o toggle e o tema atual */}
-            <Navbar toggleTheme={toggleTheme} theme={theme} />
+            <Navbar toggleTheme={toggleTheme} theme={theme} cartCount={cartCount} />
 
             <main className="content">
                 <div className="products-grid">
                     {products.map((p) => (
-                        <ProductCard key={p.id} product={p} />
+                        <ProductCard key={p.id} product={p} onAddToCart={handleAddToCart} />
                     ))}
                 </div>
             </main>
