@@ -1,0 +1,48 @@
+.homeContainer {
+    padding-top: 70px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 3rem;
+    /* Espaço no final da tela */
+}
+
+.content h1 {
+    margin-bottom: 0.5rem;
+}
+
+.content p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.5;
+    color: inherit;
+}
+
+/* Grid responsivo */
+.productsGrid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+    .productsGrid {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .productsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .productsGrid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+}

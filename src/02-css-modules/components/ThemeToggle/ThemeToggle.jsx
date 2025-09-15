@@ -7,7 +7,7 @@ export default function ThemeToggle({ theme, toggleTheme }) {
 
     return (
         <div
-            className={`${styles.themeSwitch} ${styles.group} ${styles.inlineFlex} ${styles.itemsCenter} ${styles.gap2}`}
+            className={styles.themeSwitch}
             data-state={theme === "dark" ? "checked" : "unchecked"}
         >
             <span
@@ -18,7 +18,6 @@ export default function ThemeToggle({ theme, toggleTheme }) {
                 <MoonIcon size={16} aria-hidden="true" />
             </span>
 
-            {/* Switch central */}
             <button
                 id={id}
                 role="switch"

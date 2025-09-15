@@ -3,8 +3,8 @@ import Button from "../Button/Button";
 import styles from './ProductCard.module.css'
 
 export default function ProductCard({ product, onAddToCart, onRemoveFromCart }) {
-    const [loadingCard, setLoadingCard] = useState(true); // skeleton do card
-    const [loadingButton, setLoadingButton] = useState(false); // loading do botão
+    const [loadingCard, setLoadingCard] = useState(true);
+    const [loadingButton, setLoadingButton] = useState(false);
     const [added, setAdded] = useState(false);
 
     const handleAdd = () => {
@@ -22,14 +22,13 @@ export default function ProductCard({ product, onAddToCart, onRemoveFromCart }) 
     };
 
     useEffect(() => {
-        // Skeleton só no início
         const timer = setTimeout(() => setLoadingCard(false), 1000);
         return () => clearTimeout(timer);
     }, []);
 
     if (loadingCard) {
         return (
-            <div className="card skeleton" aria-busy="true" aria-label="Carregando produto">
+            <div className="skeleton" aria-busy="true" aria-label="Carregando produto">
                 <div className="image-placeholder"></div>
                 <div className="text-placeholder"></div>
                 <div className="text-placeholder small"></div>

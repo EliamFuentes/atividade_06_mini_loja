@@ -1,0 +1,47 @@
+.themeSwitch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.switchButton {
+    width: 36px;
+    height: 20px;
+    background: var(--switch-bg, #ddd);
+    border-radius: 20px;
+    position: relative;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+/* Dark mode / ativo */
+.switchButton[aria-checked="true"] {
+    background: var(--switch-active-bg, #4f46e5);
+}
+
+.switchHandle {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s ease;
+}
+
+/* Corrige referência ao handle dentro do button */
+.switchButton[aria-checked="true"] .switchHandle {
+    transform: translateX(16px);
+}
+
+.switchIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--switch-icon, #333);
+    cursor: pointer;
+}
