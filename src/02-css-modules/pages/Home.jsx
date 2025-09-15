@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import Navbar from "../components/Navbar/Navbar"
 import ProductCard from "../components/ProductCard/ProductCard";
-import "../styles/style.css"
 
 export default function Home() {
 

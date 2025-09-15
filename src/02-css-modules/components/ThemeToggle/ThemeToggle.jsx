@@ -1,6 +1,5 @@
 import { useId } from "react";
 import { MoonIcon, SunIcon } from "lucide-react";
-import "../../styles/style.css"
 
 export default function ThemeToggle({ theme, toggleTheme }) {
     const id = useId();

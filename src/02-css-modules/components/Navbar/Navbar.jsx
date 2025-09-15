@@ -1,4 +1,3 @@
-import '../../styles/style.css'
 import { Store, ShoppingCart } from "lucide-react";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 

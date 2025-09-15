@@ -8,10 +8,10 @@ import StyledComponentsHome from './04-styled-components/pages/Home'
 
 export default function App() {
   const versions = [
-    { id: 1, title: "CSS Global", path: "/css-global", desc: "Versão com estilos globais." },
-    { id: 2, title: "CSS Modules", path: "/css-modules", desc: "Versão com CSS Modules." },
-    { id: 3, title: "Tailwind CSS", path: "/tailwind", desc: "Versão com Tailwind CSS." },
-    { id: 4, title: "Styled Components", path: "/styled-components", desc: "Versão com styled-components." },
+    { id: 1, title: "CSS Global", path: "/01-css-global", desc: "Versão com estilos globais." },
+    { id: 2, title: "CSS Modules", path: "/02-css-modules", desc: "Versão com CSS Modules." },
+    { id: 3, title: "Tailwind CSS", path: "/03-tailwind", desc: "Versão com Tailwind CSS." },
+    { id: 4, title: "Styled Components", path: "/04-styled-components", desc: "Versão com styled-components." },
   ];
 
   return (
@@ -46,10 +46,10 @@ export default function App() {
       />
 
       {/* Rotas para cada versão */}
-      <Route path="/css-global" element={<CSSGlobalHome />} />
-      <Route path="/css-modules" element={<CSSModulesHome />} />
-      <Route path="/tailwind" element={<TailwindHome />} />
-      <Route path="/styled-components" element={<StyledComponentsHome />} />
+      <Route path="/01-css-global" element={<CSSGlobalHome />} />
+      <Route path="/02-css-modules" element={<CSSModulesHome />} />
+      <Route path="/03-tailwind" element={<TailwindHome />} />
+      <Route path="/04-styled-components" element={<StyledComponentsHome />} />
     </Routes>
   );
 }

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "../../styles/style.css"
 import Button from "../Button/Button";
 
 export default function ProductCard({ product, onAddToCart, onRemoveFromCart }) {

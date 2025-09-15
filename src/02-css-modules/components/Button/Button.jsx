@@ -1,5 +1,3 @@
-import '../../styles/style.css'
-
 export default function Button({ onClick, children, variant = "solid", disabled = false }) {
     return (
         <button
