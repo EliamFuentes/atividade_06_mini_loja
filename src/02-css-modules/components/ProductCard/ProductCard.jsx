@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Button from "../Button/Button";
+import styles from './ProductCard.module.css'
 
 export default function ProductCard({ product, onAddToCart, onRemoveFromCart }) {
     const [loadingCard, setLoadingCard] = useState(true); // skeleton do card
@@ -37,21 +38,21 @@ export default function ProductCard({ product, onAddToCart, onRemoveFromCart }) 
     }
 
     return (
-        <article className="card" tabIndex="0">
-            <div className="card-image">
+        <article className={styles.card} tabIndex="0">
+            <div className={styles.cardImage}>
                 <img src={product.image} alt={product.title} loading="lazy" />
-                {product.tag && <span className="tag">{product.tag}</span>}
+                {product.tag && <span className={styles.tag}>{product.tag}</span>}
             </div>
 
-            <div className="card-content">
-                <h3 className="card-title">{product.title}</h3>
+            <div className={styles.cardContent}>
+                <h3 className={styles.cardTitle}>{product.title}</h3>
 
-                <div className="card-meta">
-                    <span className="card-price">R$ {product.price.toFixed(2)}</span>
-                    <span className="card-rating">{"★".repeat(product.rating)}</span>
+                <div className={styles.cardMeta}>
+                    <span className={styles.cardPrice}>R$ {product.price.toFixed(2)}</span>
+                    <span className={styles.cardRating}>{"★".repeat(product.rating)}</span>
                 </div>
 
-                <div className="card-actions">
+                <div className={styles.cardActions}>
                     {!added ? (
                         <Button onClick={handleAdd} disabled={loadingButton}>
                             {loadingButton ? "Adicionando..." : "Adicionar"}

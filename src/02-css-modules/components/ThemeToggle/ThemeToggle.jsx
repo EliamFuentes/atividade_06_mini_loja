@@ -1,17 +1,18 @@
 import { useId } from "react";
 import { MoonIcon, SunIcon } from "lucide-react";
+import styles from './ThemeToggle.module.css'
 
 export default function ThemeToggle({ theme, toggleTheme }) {
     const id = useId();
 
     return (
         <div
-            className="theme-switch group inline-flex items-center gap-2"
+            className={`${styles.themeSwitch} ${styles.group} ${styles.inlineFlex} ${styles.itemsCenter} ${styles.gap2}`}
             data-state={theme === "dark" ? "checked" : "unchecked"}
         >
             <span
                 id={`${id}-off`}
-                className="switch-icon"
+                className={styles.switchIcon}
                 onClick={() => theme !== "dark" && toggleTheme()}
             >
                 <MoonIcon size={16} aria-hidden="true" />
@@ -25,14 +26,14 @@ export default function ThemeToggle({ theme, toggleTheme }) {
                 aria-labelledby={`${id}-off ${id}-on`}
                 aria-label="Toggle between dark and light mode"
                 onClick={toggleTheme}
-                className="switch-button"
+                className={styles.switchButton}
             >
-                <span className="switch-handle"></span>
+                <span className={styles.switchHandle}></span>
             </button>
 
             <span
                 id={`${id}-on`}
-                className="switch-icon"
+                className={styles.switchIcon}
                 onClick={() => theme !== "light" && toggleTheme()}
             >
                 <SunIcon size={16} aria-hidden="true" />

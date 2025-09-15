@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import Navbar from "../components/Navbar/Navbar"
 import ProductCard from "../components/ProductCard/ProductCard";
+import styles from './Home.module.css'
 
 export default function Home() {
 
@@ -40,12 +41,12 @@ export default function Home() {
     };
 
     return (
-        <div className="home-container">
+        <div className={styles.homeContainer}>
             {/* Navbar recebe o toggle e o tema atual */}
             <Navbar toggleTheme={toggleTheme} theme={theme} cartCount={cartCount} />
 
-            <main className="content">
-                <div className="products-grid">
+            <main className={styles.content}>
+                <div className={styles.productsGrid}>
                     {products.map((p) => (
                         <ProductCard
                             key={p.id}
