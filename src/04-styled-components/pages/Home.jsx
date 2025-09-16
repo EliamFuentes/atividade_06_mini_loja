@@ -1,6 +1,50 @@
 import { useState, useEffect } from "react"
 import Navbar from "../components/Navbar/Navbar"
 import ProductCard from "../components/ProductCard/ProductCard";
+import styled from "styled-components";
+
+const HomeContainer = styled.div`
+  padding-top: 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 3rem;
+`;
+
+const Content = styled.main`
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.5;
+    color: inherit;
+  }
+`;
+
+const ProductsGrid = styled.div`
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+`;
 
 export default function Home() {
 
@@ -40,12 +84,11 @@ export default function Home() {
     };
 
     return (
-        <div className="home-container">
-            {/* Navbar recebe o toggle e o tema atual */}
+        <HomeContainer>
             <Navbar toggleTheme={toggleTheme} theme={theme} cartCount={cartCount} />
 
-            <main className="content">
-                <div className="products-grid">
+            <Content>
+                <ProductsGrid>
                     {products.map((p) => (
                         <ProductCard
                             key={p.id}
@@ -54,8 +97,8 @@ export default function Home() {
                             onRemoveFromCart={handleRemoveFromCart}
                         />
                     ))}
-                </div>
-            </main>
-        </div>
+                </ProductsGrid>
+            </Content>
+        </HomeContainer>
     )
 }
