@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar"
 import ProductCard from "../components/ProductCard/ProductCard";
+import { House } from "lucide-react";
 import "../styles/style.css"
 
 export default function Home() {
@@ -15,6 +17,8 @@ export default function Home() {
     ];
 
     const [cartCount, setCartCount] = useState(0);
+    const navigate = useNavigate();
+
 
     const handleAddToCart = () => {
         setCartCount((prev) => prev + 1);
@@ -57,6 +61,13 @@ export default function Home() {
                     ))}
                 </div>
             </main>
+
+            <button
+                onClick={() => navigate("/")}
+                className="buttonHome"
+            >
+                <House size={24} />
+            </button>
         </div>
     )
 }
