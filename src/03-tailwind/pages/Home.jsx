@@ -45,7 +45,7 @@ export default function Home() {
             <Navbar toggleTheme={toggleTheme} theme={theme} cartCount={cartCount} />
 
             <main className="px-4">
-                <div className="products-grid">
+                <div className="grid gap-6 mt-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {products.map((p) => (
                         <ProductCard
                             key={p.id}

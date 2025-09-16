@@ -28,30 +28,51 @@ export default function ProductCard({ product, onAddToCart, onRemoveFromCart }) 
 
     if (loadingCard) {
         return (
-            <div className="card skeleton" aria-busy="true" aria-label="Carregando produto">
-                <div className="image-placeholder"></div>
-                <div className="text-placeholder"></div>
-                <div className="text-placeholder small"></div>
+            <div
+                className="flex flex-col overflow-hidden rounded-lg border border-gray-300 outline-none bg-inherit animate-pulse"
+                aria-busy="true"
+                aria-label="Carregando produto"
+            >
+                <div className="w-full pt-[100%] bg-gray-300"></div>
+                <div className="h-4 my-2 mx-2 bg-gray-300"></div>
+                <div className="h-4 my-2 mx-2 bg-gray-300 w-3/5"></div>
             </div>
+
         );
     }
 
     return (
-        <article className="card" tabIndex="0">
-            <div className="card-image">
-                <img src={product.image} alt={product.title} loading="lazy" />
-                {product.tag && <span className="tag">{product.tag}</span>}
+        <article
+            className="flex flex-col overflow-hidden rounded-lg border border-gray-300 outline-none transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus:shadow-blue-500/50 dark:border-gray-300 bg-inherit"
+            tabIndex="0"
+        >
+            {/* Imagem */}
+            <div className="relative w-full pt-[100%] overflow-hidden">
+                <img
+                    src={product.image}
+                    alt={product.title}
+                    loading="lazy"
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                />
+                {product.tag && (
+                    <span className="absolute top-2 left-2 bg-yellow-500 text-white text-xs px-2 py-0.5 rounded">
+                        {product.tag}
+                    </span>
+                )}
             </div>
 
-            <div className="card-content">
-                <h3 className="card-title">{product.title}</h3>
+            {/* Conteúdo */}
+            <div className="p-4 flex flex-col gap-3 flex-1">
+                <h3 className="font-bold text-base leading-snug line-clamp-2">{product.title}</h3>
 
-                <div className="card-meta">
-                    <span className="card-price">R$ {product.price.toFixed(2)}</span>
-                    <span className="card-rating">{"★".repeat(product.rating)}</span>
+                <div className="flex flex-col flex-1">
+                    <span className="font-bold text-green-600 mt-1">
+                        R$ {product.price.toFixed(2)}
+                    </span>
+                    <span className="text-yellow-400 mt-auto">{"★".repeat(product.rating)}</span>
                 </div>
 
-                <div className="card-actions">
+                <div className="flex gap-2 mt-2">
                     {!added ? (
                         <Button onClick={handleAdd} disabled={loadingButton}>
                             {loadingButton ? "Adicionando..." : "Adicionar"}
